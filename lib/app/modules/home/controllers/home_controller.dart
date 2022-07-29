@@ -1,26 +1,94 @@
 // ignore_for_file: unnecessary_overrides
-
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
-  // ignore: todo
-  //TODO: Implement HomeController
+  final TextEditingController go = TextEditingController();
+  final TextEditingController to = TextEditingController();
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
-  }
+  final String GOTO = "Munshiganj";
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
+  final nowtime = DateTime.now().hour;
 
-  @override
-  void onClose() {
-    super.onClose();
-  }
+  Timelist(dynamic context) => go.text == GOTO
+      ? StreamBuilder<QuerySnapshot>(
+          stream: FirebaseFirestore.instance
+              .collection(
+                "Munshiganj",
+              )
+              .where('day', isGreaterThanOrEqualTo: nowtime.toString())
+              .snapshots(),
+          builder: (context, snapshot) {
+            final getdata = snapshot.data?.docs;
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            } else {
+              return ListView.builder(
+                  itemCount: getdata?.length,
+                  itemBuilder: (contex, index) {
+                    return getdata!.length == null
+                        ? Center(
+                            child: Text("Not Data Fount "),
+                          )
+                        : Card(
+                            child: ListTile(
+                              title: Text(getdata[index]["Name"]),
+                              trailing: Text(getdata[index]["Time"]),
+                            ),
+                          );
+                  });
+            }
+          },
+        )
+      : StreamBuilder<QuerySnapshot>(
+          stream: FirebaseFirestore.instance
+              .collection("Narayanganj")
+              .where('day', isGreaterThanOrEqualTo: nowtime.toString())
+              .snapshots(),
+          builder: (context, snapshot) {
+            final getdata = snapshot.data?.docs;
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            } else {
+              return ListView.builder(
+                  itemCount: getdata?.length,
+                  itemBuilder: (contex, index) {
+                    return getdata!.length == null
+                        ? Center(
+                            child: Text("Not Data Fount "),
+                          )
+                        : Card(
+                            child: ListTile(
+                              title: Text(getdata[index]["Name"]),
+                              trailing: Text(getdata[index]["Time"]),
+                            ),
+                          );
+                  });
+            }
+          });
 
-  void increment() => count.value++;
+  // Stream<QuerySnapshot> showruslt() {
+  //   if (go.text == GOTO) {
+  //     FirebaseFirestore.instance.collection("Munshiganj").snapshots();
+  //     print("mun");
+  //   } else {
+  //     FirebaseFirestore.instance.collection("Narayangonj").snapshots();
+  //     print("ngonj");
+  //   }
+  //   return showruslt();
+  // }
+
+  // Stream<int> generateNumbers = (() async* {
+  //   await Future<void>.delayed(Duration(milliseconds: 2));
+
+  //   for (int i = 1; i <= 5; i++) {
+  //     await Future<void>.delayed(Duration(milliseconds: 1));
+  //     yield i;
+  //   }
+  // })();
 }

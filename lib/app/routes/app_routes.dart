@@ -7,10 +7,14 @@ abstract class Routes {
   Routes._();
   static const HOME = _Paths.HOME;
   static const TIMELIST = _Paths.TIMELIST;
+  static const LOUNCHTIMEADD = _Paths.LOUNCHTIMEADD;
+  static const SHOWLOUNCHTIME = _Paths.SHOWLOUNCHTIME;
 }
 
 abstract class _Paths {
   _Paths._();
   static const HOME = '/home';
   static const TIMELIST = '/timelist';
+  static const LOUNCHTIMEADD = '/lounchtimeadd';
+  static const SHOWLOUNCHTIME = '/showlounchtime';
 }

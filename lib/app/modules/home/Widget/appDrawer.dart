@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lounchtime/app/routes/app_pages.dart';
 import 'package:lounchtime/helper/AppColors.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({
@@ -11,16 +12,38 @@ class AppDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Uri _url = Uri.parse('https://www.m.me/ababildevceo');
+
+    void _launchUrl() async {
+      if (!await launchUrl(_url)) throw 'Could not launch $_url';
+    }
+
     return Drawer(
       backgroundColor: appColors.darkGreen,
       child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         ListTile(
+          onTap: () {
+            Get.offNamed(Routes.HOME);
+          },
           title: Text(
             "হােম",
             style: TextStyle(color: Colors.white),
           ),
           leading: Icon(
             CupertinoIcons.home,
+            color: Colors.white,
+          ),
+        ),
+        ListTile(
+          onTap: () {
+            Get.toNamed(Routes.LOUNCHTIMEADD);
+          },
+          title: Text(
+            "Lounch Time Add",
+            style: TextStyle(color: Colors.white),
+          ),
+          leading: Icon(
+            CupertinoIcons.add_circled,
             color: Colors.white,
           ),
         ),
@@ -48,6 +71,9 @@ class AppDrawer extends StatelessWidget {
           ),
         ),
         ListTile(
+          onTap: () {
+            _launchUrl();
+          },
           title: Text(
             "যােগাযােগ",
             style: TextStyle(color: Colors.white),
