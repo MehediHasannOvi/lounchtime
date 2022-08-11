@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ababildev.lounchtime.lounchtime">
    <application
-        android:label="Launch Time"
+        android:label="Launch Time (লঞ্চের সময়)"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

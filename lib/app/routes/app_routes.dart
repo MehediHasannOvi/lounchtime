@@ -9,6 +9,7 @@ abstract class Routes {
   static const TIMELIST = _Paths.TIMELIST;
   static const LOUNCHTIMEADD = _Paths.LOUNCHTIMEADD;
   static const SHOWLOUNCHTIME = _Paths.SHOWLOUNCHTIME;
+  static const NOTIFICATION = _Paths.NOTIFICATION;
 }
 
 abstract class _Paths {
@@ -17,4 +18,5 @@ abstract class _Paths {
   static const TIMELIST = '/timelist';
   static const LOUNCHTIMEADD = '/lounchtimeadd';
   static const SHOWLOUNCHTIME = '/showlounchtime';
+  static const NOTIFICATION = '/notification';
 }

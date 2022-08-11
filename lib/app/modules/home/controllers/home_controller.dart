@@ -4,73 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
-  final TextEditingController go = TextEditingController();
-  final TextEditingController to = TextEditingController();
+  // String? selectedValue1;
+// String? selectedValue;
 
-  final String GOTO = "Munshiganj";
 
-  final nowtime = DateTime.now().hour;
 
-  Timelist(dynamic context) => go.text == GOTO
-      ? StreamBuilder<QuerySnapshot>(
-          stream: FirebaseFirestore.instance
-              .collection(
-                "Munshiganj",
-              )
-              .where('day', isGreaterThanOrEqualTo: nowtime.toString())
-              .snapshots(),
-          builder: (context, snapshot) {
-            final getdata = snapshot.data?.docs;
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(
-                child: CircularProgressIndicator(),
-              );
-            } else {
-              return ListView.builder(
-                  itemCount: getdata?.length,
-                  itemBuilder: (contex, index) {
-                    return getdata!.length == null
-                        ? Center(
-                            child: Text("Not Data Fount "),
-                          )
-                        : Card(
-                            child: ListTile(
-                              title: Text(getdata[index]["Name"]),
-                              trailing: Text(getdata[index]["Time"]),
-                            ),
-                          );
-                  });
-            }
-          },
-        )
-      : StreamBuilder<QuerySnapshot>(
-          stream: FirebaseFirestore.instance
-              .collection("Narayanganj")
-              .where('day', isGreaterThanOrEqualTo: nowtime.toString())
-              .snapshots(),
-          builder: (context, snapshot) {
-            final getdata = snapshot.data?.docs;
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(
-                child: CircularProgressIndicator(),
-              );
-            } else {
-              return ListView.builder(
-                  itemCount: getdata?.length,
-                  itemBuilder: (contex, index) {
-                    return getdata!.length == null
-                        ? Center(
-                            child: Text("Not Data Fount "),
-                          )
-                        : Card(
-                            child: ListTile(
-                              title: Text(getdata[index]["Name"]),
-                              trailing: Text(getdata[index]["Time"]),
-                            ),
-                          );
-                  });
-            }
-          });
+//   // final TextEditingController typeAheadController = TextEditingController();
+//   // late String selectedCity;
+  
+
+//   final nowtime = DateTime.now().hour;
+  
+  
+
+  
 
   // Stream<QuerySnapshot> showruslt() {
   //   if (go.text == GOTO) {
@@ -91,4 +38,5 @@ class HomeController extends GetxController {
   //     yield i;
   //   }
   // })();
+
 }

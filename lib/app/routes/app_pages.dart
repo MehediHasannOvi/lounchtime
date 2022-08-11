@@ -4,6 +4,8 @@ import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/lounchtimeadd/bindings/lounchtimeadd_binding.dart';
 import '../modules/lounchtimeadd/views/lounchtimeadd_view.dart';
+import '../modules/notification/bindings/notification_binding.dart';
+import '../modules/notification/views/notification_view.dart';
 import '../modules/showlounchtime/bindings/showlounchtime_binding.dart';
 import '../modules/showlounchtime/views/showlounchtime_view.dart';
 import '../modules/timelist/bindings/timelist_binding.dart';
@@ -36,8 +38,13 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.SHOWLOUNCHTIME,
-      page: () => const ShowlounchtimeView(),
+      page: () => ShowlounchtimeView(),
       binding: ShowlounchtimeBinding(),
+    ),
+    GetPage(
+      name: _Paths.NOTIFICATION,
+      page: () => const NotificationView(),
+      binding: NotificationBinding(),
     ),
   ];
 }

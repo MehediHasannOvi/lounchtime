@@ -9,7 +9,7 @@ AppBar homeAppbar() {
       children: [
         SizedBox(height: 40, width: 60, child: Image.asset("assets/boat.png")),
         const Text(
-          'লঞ্চর',
+          'লঞ্চের',
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
         Container(

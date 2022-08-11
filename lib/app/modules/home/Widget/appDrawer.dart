@@ -25,44 +25,47 @@ class AppDrawer extends StatelessWidget {
           onTap: () {
             Get.offNamed(Routes.HOME);
           },
-          title: Text(
+          title: const Text(
             "হােম",
             style: TextStyle(color: Colors.white),
           ),
-          leading: Icon(
+          leading: const Icon(
             CupertinoIcons.home,
             color: Colors.white,
           ),
         ),
-        ListTile(
-          onTap: () {
-            Get.toNamed(Routes.LOUNCHTIMEADD);
-          },
-          title: Text(
-            "Lounch Time Add",
-            style: TextStyle(color: Colors.white),
-          ),
-          leading: Icon(
-            CupertinoIcons.add_circled,
-            color: Colors.white,
-          ),
-        ),
+        // ListTile(
+        //   onTap: () {
+        //     Get.toNamed(Routes.LOUNCHTIMEADD);
+        //   },
+        //   title: Text(
+        //     "Lounch Time Add",
+        //     style: TextStyle(color: Colors.white),
+        //   ),
+        //   leading: Icon(
+        //     CupertinoIcons.add_circled,
+        //     color: Colors.white,
+        //   ),
+        // ),
         ListTile(
           onTap: () {
             Get.toNamed(Routes.TIMELIST);
           },
-          title: Text(
+          title: const Text(
             "সময়ের তালিকা",
             style: TextStyle(color: Colors.white),
           ),
-          leading: Icon(
+          leading: const Icon(
             CupertinoIcons.time,
             color: Colors.white,
           ),
         ),
         ListTile(
+          onTap: () {
+            Get.toNamed(Routes.NOTIFICATION);
+          },
           title: Text(
-            "লঞ্চর তালিকা ও রুট",
+            "বিজ্ঞপ্তি",
             style: TextStyle(color: Colors.white),
           ),
           leading: Icon(
@@ -74,16 +77,16 @@ class AppDrawer extends StatelessWidget {
           onTap: () {
             _launchUrl();
           },
-          title: Text(
+          title: const Text(
             "যােগাযােগ",
             style: TextStyle(color: Colors.white),
           ),
-          leading: Icon(
+          leading: const Icon(
             CupertinoIcons.mail,
             color: Colors.white,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 180,
         ),
         Center(
